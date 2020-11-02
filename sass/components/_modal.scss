@@ -1,0 +1,213 @@
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+
+  background-color: rgba(0, 0, 0, 0.2);
+  transition-property: all;
+  @include transition;
+
+  &.is-hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition-property: all;
+    @include transition(500ms);
+  }
+}
+
+.modal {
+  position: relative;
+  transform: scale(1);
+
+  padding: 40px;
+  width: 100%;
+
+  @media screen and (min-width: 480px) {
+    width: 450px;
+    // height: 609px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    width: 528px;
+    // height: 581px;
+  }
+
+  background-color: $primary-white-color;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  transition-property: all;
+  @include transition(250ms);
+
+  .backdrop.is-hidden & {
+    transform: scale(0);
+    transition-property: all;
+    @include transition;
+  }
+
+  &__wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100%;
+    padding: 15px;
+  }
+}
+
+.close-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 30px;
+  height: 30px;
+
+  background: $primary-white-color;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  transition-property: fill;
+  @include transition;
+
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    fill: $accent-color;
+  }
+
+  &__icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.feedback {
+  &__title {
+    display: block;
+    margin: 0 auto 12px auto;
+
+    @include font(700, 20px, 23px);
+    color: $secondary-text-color;
+
+    @media screen and (max-width: 1199px) {
+      text-align: center;
+    }
+  }
+
+  &__field-icon {
+    position: absolute;
+    left: 12px;
+    bottom: 11px;
+
+    width: 18px;
+    height: 18px;
+    fill: $secondary-text-color;
+    transition-property: fill;
+    @include transition;
+    cursor: pointer;
+
+    .feedback__input:focus + & {
+      fill: $accent-color;
+    }
+  }
+
+  &__form-field {
+    position: relative;
+    display: block;
+    margin-bottom: 10px;
+  }
+}
+
+.feedback__input {
+  height: 40px;
+  width: 100%;
+
+  padding-left: 42px;
+
+  border: 1px solid rgba(33, 33, 33, 0.2);
+  border-radius: 4px;
+  transition-property: border;
+  @include transition;
+  cursor: pointer;
+
+  &:focus {
+    outline: none;
+    border: 1px solid $accent-color;
+    border-radius: 4px;
+  }
+
+  &::placeholder {
+    @include font(400, 14px, 16px, 0.01em);
+    color: rgba(117, 117, 117, 0.5);
+  }
+
+  &-label {
+    display: block;
+    margin-bottom: 4px;
+
+    @include font(400, 12px, 14px, 0.01em);
+    color: $main-text-color;
+  }
+
+  &--textarea {
+    height: 120px;
+    padding: 12px 16px;
+    margin-bottom: 20px;
+    resize: none;
+  }
+}
+
+.agreement {
+  position: relative;
+
+  margin-bottom: 30px;
+  text-align: center;
+
+  &__link {
+    display: inline-block;
+    color: $accent-color;
+  }
+}
+
+.agreement__label {
+  display: inline-block;
+  @include font(400, 12px, 14px);
+
+  @media screen and (min-width: 1200px) {
+    font-size: 14px;
+    line-height: 1.714;
+  }
+
+  color: $main-text-color;
+  cursor: pointer;
+
+  &::before {
+    content: '';
+
+    display: inline-block;
+    width: 16px;
+    height: 15px;
+    vertical-align: middle;
+    margin-right: 3px;
+
+    background-color: transparent;
+    border: 1.7px solid $secondary-text-color;
+    border-radius: 2px;
+    transition-property: all;
+    @include transition;
+  }
+
+  .agreement__checkbox:checked + &::before {
+    border-color: transparent;
+    fill: $primary-white-color;
+    background-color: $accent-color;
+    background-image: url(../images/check.svg);
+    background-size: contain;
+    background-origin: border-box;
+  }
+}

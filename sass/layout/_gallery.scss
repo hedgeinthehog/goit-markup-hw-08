@@ -1,0 +1,132 @@
+.portfolio {
+  display: flex;
+  flex-wrap: wrap;
+
+  .filter + & {
+    margin-top: 40px;
+
+    @media screen and (min-width: 768px) {
+      margin-top: 30px;
+    }
+
+    @media screen and (min-width: 1200px) {
+      margin-top: 50px;
+    }
+  }
+
+  &__thumb {
+    position: relative;
+    overflow: hidden;
+  }
+}
+
+.portfolio__item {
+  width: 100%;
+  // item-width
+  @media screen and (min-width: 480px) {
+    width: 450px;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 354px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    width: 370px;
+  }
+  // item-width
+  // item-alignment
+  @media screen and (max-width: 767px) {
+    & + & {
+      margin-top: 30px;
+    }
+  }
+
+  @media screen and (min-width: 768px) and (max-width: 1199px) {
+    &:not(:nth-child(-n + 2)) {
+      margin-top: 30px;
+    }
+
+    &:nth-child(2n) {
+      margin-left: 30px;
+    }
+  }
+
+  @media screen and (min-width: 1200px) {
+    &:not(:nth-child(-n + 3)) {
+      margin-top: 30px;
+    }
+
+    &:not(:nth-child(3n)) {
+      margin-right: 30px;
+    }
+  }
+  // item-alignment
+
+  cursor: pointer;
+  transition-property: box-shadow;
+  @include transition;
+
+  &:hover {
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
+      1px 4px 6px rgba(0, 0, 0, 0.16);
+  }
+
+  &-title {
+    padding-bottom: 4px;
+    @include font(700, 18px, 36px, 0.06em);
+    color: $secondary-text-color;
+  }
+
+  &-text {
+    @include font(400, 16px, 30px);
+    color: $main-text-color;
+  }
+
+  &-description {
+    padding: 20px 24px;
+    border-left: 1px solid #eeeeee;
+    border-right: 1px solid #eeeeee;
+    border-bottom: 1px solid #eeeeee;
+  }
+
+  &-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    display: flex;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    padding-left: 24px;
+    padding-right: 24px;
+
+    @include font(400, 18px, 28px);
+    color: $primary-white-color;
+    background-color: rgba(33, 150, 243, 0.9);
+    // /* word-break: break-all; */
+
+    transform: translateY(100%);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transition-property: transform, opacity, visibility;
+    @include transition;
+  }
+
+  .portfolio__link:hover &-overlay {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0%);
+  }
+}
+
+@media screen and (max-width: 497px) {
+  .portfolio__img {
+    width: 100%;
+    object-fit: cover;
+  }
+}

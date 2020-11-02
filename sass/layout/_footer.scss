@@ -1,0 +1,98 @@
+.footer {
+  padding-top: 60px;
+  padding-bottom: 60px;
+
+  background-color: $footer-background-color;
+
+  &_title {
+    margin-bottom: 20px;
+    @include font(700, 14px, 16px);
+    text-transform: uppercase;
+
+    color: $primary-white-color;
+
+    @media screen and (max-width: 1199px) {
+      text-align: center;
+    }
+  }
+}
+
+.footer__contacts {
+  @media screen and (max-width: 1199px) {
+    text-align: center;
+  }
+}
+
+.footer__address {
+  &-item + &-item {
+    padding-top: 8px;
+
+    @media screen and (min-width: 1200px) {
+      padding-top: 9px;
+    }
+  }
+
+  &-item:first-child {
+    padding-top: 20px;
+  }
+
+  &-link {
+    @include font(400, 14px, 24px);
+    color: $dark-theme-color;
+
+    &--street {
+      color: $primary-white-color;
+    }
+  }
+}
+
+.subscription {
+  margin-top: 60px;
+
+  @media screen and (min-width: 1200px) {
+    margin-top: 12px;
+  }
+
+  &__form {
+    display: flex;
+
+    @media screen and (max-width: 1199px) {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  &__input {
+    padding-left: 16px;
+    height: 50px;
+    width: 100%;
+
+    @media screen and (min-width: 768px) {
+      width: 450px;
+    }
+
+    @media screen and (max-width: 1199px) {
+      margin-bottom: 20px;
+    }
+
+    @media screen and (min-width: 1200px) {
+      width: 358px;
+    }
+
+    @include font(400, 16px, 20px);
+
+    color: rgba(255, 255, 255, 0.6);
+    background-color: transparent;
+    outline: none;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+  }
+
+  &__icon {
+    width: 24px;
+    height: 24px;
+    margin-left: 10px;
+    fill: $primary-white-color;
+  }
+}

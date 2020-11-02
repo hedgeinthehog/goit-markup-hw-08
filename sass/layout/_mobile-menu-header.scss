@@ -1,0 +1,51 @@
+.menu-button {
+  display: inline-block;
+  margin: 0 0 0 auto;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  fill: #000000;
+
+  &:hover,
+  &:focus {
+    fill: $accent-color;
+  }
+}
+
+.mobile-menu-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.menu-container {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 999;
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+
+  width: 100%;
+  padding: 60px 0;
+
+  background-color: $primary-white-color;
+
+  &.is-open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: initial;
+  }
+}
+
+.menu-button .icon-close {
+  display: none;
+}
+.menu-button.is-open .icon-close {
+  display: block;
+}
+.menu-button.is-open .icon-menu {
+  display: none;
+}

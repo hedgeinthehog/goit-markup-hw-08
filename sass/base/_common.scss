@@ -1,0 +1,44 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+section {
+  padding: 0;
+  margin: 0;
+}
+
+.list {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.link {
+  text-decoration: none;
+}
+
+.address {
+  font-style: normal;
+}
+
+.body {
+  margin: 0;
+  font-family: $main-font;
+  font-style: normal;
+
+  background-color: $primary-white-color;
+}
+
+img,
+svg {
+  display: block;
+}
+
+input {
+  padding: 0;
+  outline: none;
+  box-sizing: border-box;
+}
