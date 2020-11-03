@@ -309,6 +309,12 @@ input {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+@media screen and (max-width: 479px) {
+  .modal {
+    padding: 11.25%;
+  }
+}
+
 @media screen and (min-width: 480px) {
   .modal {
     width: 450px;
@@ -1365,10 +1371,13 @@ input {
   transform: translateY(0%);
 }
 
-@media screen and (max-width: 497px) {
+@media screen and (max-width: 479px) {
   .portfolio__img {
     width: 100%;
     object-fit: cover;
+  }
+  .portfolio__item-overlay {
+    font-size: 0.9em;
   }
 }
 /*# sourceMappingURL=main.css.map */

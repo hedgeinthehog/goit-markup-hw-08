@@ -124,9 +124,13 @@
   }
 }
 
-@media screen and (max-width: 497px) {
+@media screen and (max-width: 479px) {
   .portfolio__img {
     width: 100%;
     object-fit: cover;
+  }
+
+  .portfolio__item-overlay {
+    font-size: 0.9em;
   }
 }
