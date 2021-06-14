@@ -1,1 +1,1 @@
-# goit-markup-hw-08
+A markup for WebStudio's website.
